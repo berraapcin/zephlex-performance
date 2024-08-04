@@ -1,3 +1,4 @@
+// Main.tsx
 import React, { useState } from 'react';
 import {
   MenuFoldOutlined,
@@ -8,7 +9,7 @@ import {
   LogoutOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, Dropdown } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 const { Header, Sider, Content } = Layout;
 
@@ -28,7 +29,7 @@ const Main: React.FC = () => {
     </Menu>
   );
 
-  const colorBgContainer = '#FFFFFF'; 
+  const colorBgContainer = '#FFFFFF';
 
   return (
     <div className="app-container">
@@ -39,24 +40,17 @@ const Main: React.FC = () => {
             theme="dark"
             mode="inline"
             defaultSelectedKeys={['1']}
-            items={[
-              {
-                key: '1',
-                icon: <UserOutlined />,
-                label: 'nav 1',
-              },
-              {
-                key: '2',
-                icon: <VideoCameraOutlined />,
-                label: 'nav 2',
-              },
-              {
-                key: '3',
-                icon: <UploadOutlined />,
-                label: 'nav 3',
-              },
-            ]}
-          />
+          >
+            <Menu.Item key="1" icon={<UploadOutlined/>}>
+              <Link to="/uploadexcel">Excel dosyası</Link>
+            </Menu.Item>
+            <Menu.Item key="2" icon={<VideoCameraOutlined/>}>
+              <Link to="/exceldetail">Detay</Link>
+            </Menu.Item>
+            <Menu.Item key="3" icon={<UploadOutlined/>}>
+              <Link to="/excellist">Excel Liste</Link>
+            </Menu.Item>
+          </Menu>
         </Sider>
         <Layout>
           <Header style={{ padding: 0, background: colorBgContainer }}>
@@ -84,7 +78,7 @@ const Main: React.FC = () => {
                   zIndex: 999,
                 }}
               >
-               <UserOutlined /> Kullanıcı
+                <UserOutlined /> Kullanıcı
               </Button>
             </Dropdown>
           </Header>
@@ -96,7 +90,7 @@ const Main: React.FC = () => {
               background: colorBgContainer,
             }}
           >
-           
+            <Outlet />
           </Content>
         </Layout>
       </Layout>

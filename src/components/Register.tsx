@@ -1,13 +1,20 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
+  const auth = getAuth(); 
 
-  const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
-    navigate('/login');
+  const onFinish = async (values: any) => {
+    try {
+      await createUserWithEmailAndPassword(auth, values.mail, values.password);
+      console.log('Kayıt başarılı!');
+      navigate('/login');
+    } catch (error) {
+      console.error('Kayıt olma hatası:', error);
+    }
   };
 
   return (
@@ -18,42 +25,39 @@ const Register: React.FC = () => {
         onFinish={onFinish}
       >
         <Form.Item
-         label="Kullanıcı Adı"
+          label="Kullanıcı Adı"
           name="username"
           rules={[{ required: true, message: 'Please input your Username!' }]}
-          labelCol={{ span: 10}} 
-  wrapperCol={{ span: 15 }} 
+          labelCol={{ span: 10 }}
+          wrapperCol={{ span: 15 }}
         >
           <Input placeholder="Username" />
         </Form.Item>
         <Form.Item
           label="E-mail"
           name="mail"
-          rules={[{ required: true, message: 'Please input your Mail adress!' }]}
-          labelCol={{ span: 10 }} 
-  wrapperCol={{ span: 18 }} 
+          rules={[{ required: true, message: 'Please input your Mail address!' }]}
+          labelCol={{ span: 10 }}
+          wrapperCol={{ span: 18 }}
         >
-          <Input placeholder="Mail adress" />
+          <Input placeholder="Mail address" />
         </Form.Item>
         <Form.Item
           label="Şifre"
           name="password"
           rules={[{ required: true, message: 'Please input your Password!' }]}
-          labelCol={{ span: 10}}
-  wrapperCol={{ span: 16 }} 
+          labelCol={{ span: 10 }}
+          wrapperCol={{ span: 16 }}
         >
-          <Input
-            type="password"
-            placeholder="Password"
-          />
+          <Input type="password" placeholder="Password" />
         </Form.Item>
         <Form.Item>
-        <Button
-    type="primary"
-    htmlType="submit"
-    className="register-form-button"
-    style={{ width: '100%' }} 
-  >
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="register-form-button"
+            style={{ width: '100%' }}
+          >
             Kayıt ol
           </Button>
         </Form.Item>
