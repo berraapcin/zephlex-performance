@@ -1,27 +1,60 @@
-# React + TypeScript + Vite
+# Full Stack App – React + Node.js + Firebase 🔥
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **learning-based full stack application** developed using **React**, **Node.js**, **Vite**, **Firebase Authentication**, and **MySQL**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Purpose
 
-## Expanding the ESLint configuration
+This project was created as a personal learning experience to improve my skills in full stack web development. I aimed to practice frontend/backend integration, routing, authentication, API calls, and working with databases.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 🔧 Technologies Used
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+### Frontend:
+- React (with TypeScript)
+- Vite
+- Ant Design for UI components
+- React Router for routing
+- Firebase Authentication for login/register
+- Firestore & Firebase Storage
+
+### Backend:
+- Node.js
+- Express.js
+- MySQL (with `mysql2`)
+- CORS & Body-parser middleware
+
+---
+
+## 🔐 Features
+
+- Firebase-based user authentication (Login/Register)
+- Protected routes via React Router
+- Side navigation with Ant Design icons
+- API fetch operations using `fetch()`
+- Fetching live stock data from an external API
+- MySQL database operations for storing entries and performance data
+- Basic UI interaction like collapsible menus, logout dropdown, etc.
+
+---
+
+## 🚀 Project Structure
+
+```
+/client      --> React + Vite frontend
+/server      --> Node.js backend with Express and MySQL
+/firebase    --> Firebase setup & config
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+---
+
+## 📚 What I Practiced
+
+- Setting up and managing **Firebase Authentication**
+- Creating a clean and responsive UI with **Ant Design**
+- Routing using **React Router**
+- Building and testing **RESTful APIs**
+- Connecting Node.js to a local **MySQL database**
+- Handling async API requests and UI state updates
